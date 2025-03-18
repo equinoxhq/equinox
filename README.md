@@ -12,3 +12,12 @@ It is still a work-in-progress, and as such, has not been released as of yet. It
 - The Android container and runtime are working fully, as of 16th of March, 2025.
 - The APK installer is being worked on.
 - The website with usage instructions is being worked on.
+
+## Credits
+### Contributors
+- **xTrayambak**: Programming
+- **Ashtaka**: GUI Design
+- **kirbix**: APK URL fetcher backend
+
+### Extra Projects
+The list of libraries Equinox depends on is very large, but we'd like to thank the [Waydroid Project](https://github.com/waydroid), because this project would not exist without them.
