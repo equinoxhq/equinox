@@ -17,7 +17,7 @@ It is still a work-in-progress, and as such, has not been released as of yet. It
 ### Contributors
 - **xTrayambak**: Programming
 - **Ashtaka**: GUI Design
-- **kirbix**: APK URL fetcher backend
+- **kirbix**: Google Play APK URL fetcher
 
 ### Extra Projects
 The list of libraries Equinox depends on is very large, but we'd like to thank the [Waydroid Project](https://github.com/waydroid), because this project would not exist without them.
