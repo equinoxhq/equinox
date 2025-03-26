@@ -18,6 +18,9 @@ proc main() {.inline.} =
   putEnv("LOUVRE_WAYLAND_DISPLAY", "equinox-comp")
     # This is important so we don't conflict with other compositors. Equinox will always redirect the display for Wayland's hwcomposer HAL to this.
 
+  putEnv("LOUVRE_GRAPHIC_BACKEND", "equinoxwl")
+  putEnv("LOUVRE_BACKENDS_PATH", getAppDir() / "backends") # FIXME: make this more robust/less icky
+
   var equi = makeUnique(Equi)
 
   if not equi.start():

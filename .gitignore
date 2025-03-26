@@ -4,7 +4,6 @@
 !.github/
 !.github/*
 !LICENSE
-# waydroid/
 *.log
 *.json
 *.so
