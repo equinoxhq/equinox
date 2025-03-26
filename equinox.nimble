@@ -5,7 +5,7 @@ author = "xTrayambak"
 description = "Waydroid approach"
 license = "GPL-3.0-or-later"
 srcDir = "src"
-backend = "cpp"
+backend = "c"
 bin = @["equinox", "equinox_gui", "equinox_comp"]
 
 # Dependencies

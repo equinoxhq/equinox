@@ -48,7 +48,7 @@ proc loadConfig*(input: Input) {.sideEffect.} =
     mountOverlays: "true",
     containerXdgRuntimeDir: "/run/xdg",
     hostXdgRuntimeDir: "/run/user/1000",
-    containerWaylandDisplay: getEnv("WAYLAND_DISPLAY", "wayland-0"),
+    containerWaylandDisplay: if *input.flag("wayland-display"): &input.flag("wayland-display") else: "wayland-0",
   )
   config.imagesPath = config.work / "images"
   config.rootfs = config.work / "rootfs"

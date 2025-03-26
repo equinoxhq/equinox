@@ -32,17 +32,6 @@ viewable Launcher:
   position:
     PopoverPosition = PopoverBottom
 
-  #my code sucks
-  erm_guh:
-    string =
-      "equinox init --xdg-runtime-dir:A --wayland-display:B --user:C --uid:D --gid:E"
-  runtime:
-    string = "--xdg-runtime-dir:"
-  wayland:
-    string = "--wayland-display:"
-  user:
-    string = "--user:"
-
 let env = getXdgEnv()
 
 method view(app: LauncherState): Widget =
@@ -160,18 +149,27 @@ The Roblox logo and branding are registered trademarks of Roblox Corporation.
               proc clicked() =
                 let cmd =
                   findExe("pkexec") & ' ' & env.equinoxPath & " run --xdg-runtime-dir:" &
-                  env.runtimeDir & " --wayland-display:" & env.waylandDisplay &
+                  env.runtimeDir & " --wayland-display:equinox-comp" &
                   " --user:" & env.user & " --uid:" & $getuid() & " --gid:" & $getgid()
+
+                app.closeWindow()
+                
+                let compPid = fork()
+                if compPid == 0:
+                  debug "launcher: we're the forked child"
+                  discard execCmd(env.equinoxCompPath)
+                  quit(0)
+                else:
+                  debug "launcher: we're the parent, executing equinox"
+
                 let pid = fork()
 
                 if pid == 0:
                   debug "launcher: we're the forked child"
-                  app.scheduleCloseWindow()
                   discard execCmd(cmd)
                   quit(0)
                 else:
                   debug "launcher: we're the parent"
-                  app.scheduleCloseWindow()
                   quit(0)
 
             Button:
