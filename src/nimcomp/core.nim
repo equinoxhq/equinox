@@ -4,6 +4,21 @@ import pkg/[louvre, colored_logger, vmath]
 
 type Equi* = object of Compositor
 
+proc createObjectRequest(equi: ptr Equi, objectType: FactoryObjectType, params {.codegenDecl: "const $1 $2".}: pointer): ptr FactoryObject {.virtual.} =
+  debug "comp: createObjectRequest -> " & $objectType
+
+  case objectType
+  of LSurface:
+    for surface in Compositor(equi[]).getSurfaces():
+      let outputs = surface.getOutputs()
+      if outputs.len < 1:
+        warn "comp: BUG: Surface appears on no outputs???"
+        continue
+
+      surface.resize(outputs[0][].size)
+      surface.raiseSurface()
+  else: discard
+
 proc initialized(equi: ptr Equi) {.virtual.} =
   debug "comp: initialized compositor successfully."
 
