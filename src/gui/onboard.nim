@@ -108,7 +108,8 @@ method view(app: OnboardingAppState): Widget =
                 app.consentFail = ""
                 let consent = app.consentedPrivacy and app.consentedTOS
                 if not consent:
-                  app.consentFail = "Please consent to our Terms of Service and Privacy Policy to continue."
+                  app.consentFail =
+                    "Please consent to our Terms of Service and Privacy Policy to continue."
                   return
 
                 # Init command
@@ -184,10 +185,15 @@ method view(app: OnboardingAppState): Widget =
                 echo "losing it" ]#
 
 proc runOnboardingApp*() =
-  adw.brew(gui(OnboardingApp()), stylesheets=[
-    newStylesheet("""
+  adw.brew(
+    gui(OnboardingApp()),
+    stylesheets = [
+      newStylesheet(
+        """
       .warning-label {
         color: #ff938b;
       }
-    """)
-  ])
+    """
+      )
+    ],
+  )

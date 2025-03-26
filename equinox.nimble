@@ -5,7 +5,8 @@ author = "xTrayambak"
 description = "Waydroid approach"
 license = "GPL-3.0-or-later"
 srcDir = "src"
-bin = @["equinox", "equinox_gui"]
+backend = "cpp"
+bin = @["equinox", "equinox_gui", "equinox_comp"]
 
 # Dependencies
 
@@ -25,3 +26,10 @@ requires "owlkettle >= 3.0.0"
 requires "gtk2 >= 1.3"
 requires "db_connector >= 0.1.0"
 requires "https://github.com/xTrayambak/nim-louvre >= 2.13.0"
+requires "vmath >= 2.0.0"
+requires "cppstl >= 0.7.0"
+requires "opengl >= 1.2.9"
+
+task buildCompBackend, "Build the custom compositor backend":
+  exec "cd src/compositor/backend && meson compile -C build"
+  exec "mv src/compositor/backend/build/equinoxwl.so backend/graphic/"
