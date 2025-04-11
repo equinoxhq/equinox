@@ -105,6 +105,7 @@ proc makeBaseProps*(input: Input) =
   props &= (key: "waydroid.host.uid", value: &input.flag("uid"))
   props &= (key: "waydroid.host.user", value: &input.flag("user"))
   props &= (key: "waydroid.keyboard_layout", value: "english")
+  props &= (key: "waydroid.blacklist_apps", value: "com.android.launcher3:com.android.settings:com.android.vending")
   props &= (key: "persist.waydroid.multi_windows", value: "false")
   props &= (key: "waydroid.stub_sensors_hal", value: "1") # we don't need any sensors
   props &= (key: "ro.sf.lcd_density", value: "180") # 180
