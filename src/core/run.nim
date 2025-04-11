@@ -2,13 +2,13 @@ import std/[os, logging, strutils, sequtils, posix, tables, json]
 import
   ../container/[
     lxc, configuration, cpu, drivers, hal, platform, network, sugar, hardware_service,
-    rootfs, app_config, fflags, properties, roblox_logs, drivers
+    rootfs, app_config, fflags, properties, drivers
   ]
 import pkg/[discord_rpc]
 import ../argparser
 import ../container/utils/[exec, mount]
 import ./event_manager/[types, dispatcher]
-import ./[discord_rpc, fflag_patches, ro_opt_patches]
+import ./[discord_rpc, fflag_patches, ro_opt_patches, roblox_logs]
 
 proc showUI*(launch: bool = true) =
   var platform = getIPlatformService()

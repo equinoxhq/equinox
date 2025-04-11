@@ -1,10 +1,9 @@
 ## Roblox logs manager
 import std/[atomics, inotify, logging, os, posix, strutils]
 import pkg/[colored_logger]
-import ./[configuration]
-import ../core/event_manager/[types, dispatcher]
+import ../container/[configuration]
+import ./event_manager/[types, dispatcher]
 
-import osproc
 type
   NoLogTargetFound* = object of CatchableError
   INotifyInitFail* = object of Defect
