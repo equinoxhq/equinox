@@ -2,7 +2,7 @@ import std/[os, logging, strutils, sequtils, posix, tables, json]
 import
   ../container/[
     lxc, configuration, cpu, drivers, hal, platform, network, sugar, hardware_service,
-    rootfs, app_config, fflags, properties, roblox_logs,
+    rootfs, app_config, fflags, properties, roblox_logs, drivers
   ]
 import pkg/[discord_rpc]
 import ../argparser
@@ -44,6 +44,7 @@ proc startAndroidRuntime*(input: Input, launchRoblox: bool = true) =
 
   destroyAllLogs()
   mountRootfs(input, config.imagesPath)
+  discard setupBinderNodes()
 
   var settings = loadAppConfig(input)
 

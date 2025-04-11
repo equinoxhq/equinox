@@ -18,7 +18,7 @@ cp src/gui/equinox.desktop $BUILDROOT/
 cp -r assets $BUILDROOT/
 
 # Compile and move the binaries in the build root
-nimble build --define:release
+nimble build
 mv ./equinox $BUILDROOT/usr/bin/
 mv ./equinox_gui $BUILDROOT/usr/bin/
 
