@@ -1,5 +1,5 @@
 # Building Equinox
-This aims to be a comprehensive guide to compiling Equinox from scratch. If your distribution has a package for Equinox, you needn't do this.
+This aims to be a comprehensive guide to compiling Equinox from scratch. If your distribution has a package for Equinox, you don't need to do this.
 
 # Installation
 ## Dependencies Required (For people interested in packaging Equinox)
