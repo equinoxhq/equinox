@@ -12,3 +12,5 @@ tmp/
 *.if
 *.pp
 *.fc
+/.direnv
+!/nix/lock.json
