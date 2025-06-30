@@ -53,7 +53,7 @@ You'll need to run this every reboot.
 ## Ubuntu
 Run the following command to gather all dependencies needed by Equinox on Ubuntu.
 ```
-# apt-get update && apt-get install clang make gtk4 libgtk-4-dev libadwaita-1 libadwaita-1-dev pcre2 libpcre2-dev glib2.0 libglib2.0-dev lxc lxc-templates uidmap lxc-utils bridge-utils dnsmasq
+# apt-get update && apt-get install clang make gtk4 libgtk-4-dev libadwaita-1 libadwaita-1-dev pcre2 libpcre2-dev glib2.0 libglib2.0-dev libglibutil-dev lxc lxc-templates uidmap lxc-utils bridge-utils dnsmasq
 ```
 
 Now, unfortunately, just like Fedora, Ubuntu does not have a libgbinder package in its repositories. You'll need to manually clone the repository and compile it instead.
